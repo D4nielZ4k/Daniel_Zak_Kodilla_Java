@@ -7,16 +7,13 @@ public class TestingMain {
 
         Calculator calculator = new Calculator(5,5);
 
-       int resultAdd = 10;
-       int resultSubtract=0;
-
-       if (resultAdd == 10){
+       if (calculator.add() == 10){
            System.out.println("Test OK");
        }else {
            System.out.println("Error!");
        }
 
-       if (resultSubtract == 0){
+       if (calculator.subtract() == 0){
            System.out.println("Test OK");
        }else {
            System.out.println("Error!");
