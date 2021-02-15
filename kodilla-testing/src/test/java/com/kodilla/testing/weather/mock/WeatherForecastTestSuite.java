@@ -28,11 +28,11 @@ class WeatherForecastTestSuite {
     }
     @BeforeAll
     public static void beforeAllTest(){
-        temperaturesMap.put("Rzeszow",10.0);
-        temperaturesMap.put("Krakow", 10.0);
-        temperaturesMap.put("Wroclaw", 10.0);
-        temperaturesMap.put("Warszawa", 10.0);
-        temperaturesMap.put("Gdansk", 10.0);
+        temperaturesMap.put("Rzeszow",18.0);
+        temperaturesMap.put("Krakow", 20.0);
+        temperaturesMap.put("Wroclaw", 16.0);
+        temperaturesMap.put("Warszawa", 14.0);
+        temperaturesMap.put("Gdansk", 17.0);
     }
     @Mock
     private Temperatures temperaturesMock;
@@ -61,7 +61,7 @@ class WeatherForecastTestSuite {
         Double result = weatherForecast.averageTemperatures();
 
         //Then
-        Assertions.assertEquals(10,result);
+        Assertions.assertEquals(17,result);
     }
     @Test
     void test_Calculate_Median_Temperatures() {
@@ -75,6 +75,6 @@ class WeatherForecastTestSuite {
         Double result = weatherForecast.medianTemperatures();
 
         //Then
-        Assertions.assertEquals(10, result);
+        Assertions.assertEquals(17, result);
     }
 }

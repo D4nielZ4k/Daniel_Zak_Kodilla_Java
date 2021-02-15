@@ -26,14 +26,11 @@ public class WeatherForecast {
 
     public double averageTemperatures() {
         List<Double> temperatureList = new ArrayList<>();
-        double sum = 0;
+
         for (Map.Entry<String, Double> temperature : temperatures.getTemperatures().entrySet()) {
             temperatureList.add(temperature.getValue());
-
         }
-        for (int i = 0; i<temperatureList.size(); i++){
-            sum += temperatureList.get(i);
-        }
+        double sum = temperatureList.stream().mapToDouble(Double::doubleValue).sum();
         return sum/temperatureList.size();
     }
 
