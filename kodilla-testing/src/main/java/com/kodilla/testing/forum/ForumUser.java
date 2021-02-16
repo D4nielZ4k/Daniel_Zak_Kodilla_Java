@@ -5,10 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ForumUser {
-    private String name;                                        // [6]
-    private String realName;                                    // [7]
-    private List<ForumPost> posts = new ArrayList<>();          // [8]
-    private List<ForumComment> comments = new LinkedList<>();   // [9]
+      String name;                                        // [6]
+      String realName;                                    // [7]
+      List<ForumPost> posts = new ArrayList<>();          // [8]
+      List<ForumComment> comments = new LinkedList<>();   // [9]
 
     public ForumUser(String name, String realName) {            // [10]
         //name visible on forum
