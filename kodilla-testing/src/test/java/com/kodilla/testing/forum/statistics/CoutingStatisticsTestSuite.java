@@ -22,8 +22,6 @@ public class CoutingStatisticsTestSuite {
 
 
 
-
-
     @Test
     void value_posts_zero(){
         //Given
@@ -35,7 +33,6 @@ public class CoutingStatisticsTestSuite {
         when(statistics.usersNames()).thenReturn(names);
         //When
         coutingStatistics.calculateAdvStatistics(statistics);
-
         int valuesUsers = coutingStatistics.getValuesUsers();
         int valuesUsersPosts = coutingStatistics.getValuesUsersPosts();
         int valuesUserComments = coutingStatistics.getValuesUserComments();
@@ -47,11 +44,9 @@ public class CoutingStatisticsTestSuite {
         Assertions.assertEquals(1,valuesUsers);
         Assertions.assertEquals(0,valuesUsersPosts);
         Assertions.assertEquals(2,valuesUserComments);
-
         Assertions.assertEquals(0,averagePostPerUser);
         Assertions.assertEquals(0,averageCommentPerPost);
         Assertions.assertEquals(0,averageCommentPerUser);
-
     }
 
     @Test
