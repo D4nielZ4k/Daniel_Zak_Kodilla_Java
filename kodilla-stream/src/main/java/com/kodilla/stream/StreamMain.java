@@ -2,6 +2,7 @@ package com.kodilla.stream;
 //import static com.sun.tools.javac.util.StringUtils.toUpperCase;
 import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.beautifier.PoemDecorator;
+import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.ExecuteSaySomething;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.lambda.Processor;
@@ -35,13 +36,15 @@ public class StreamMain {
        // expressionExecutor.executeExpression(3,4, FunctionalCalculator::subBFromA);
        // expressionExecutor.executeExpression(3,4, FunctionalCalculator::divideAByB);
 //
-        System.out.println("PoemBeautifier ");
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("text", n -> "''"+ n+"''" );
-        poemBeautifier.beautify("qwertyuiop", n -> n+ " text length :"+ n.length());
-        poemBeautifier.beautify("text", n->  n.toUpperCase(Locale.ROOT) );
-        poemBeautifier.beautify("TEXT", n-> n.toLowerCase(Locale.ROOT));
+       // System.out.println("PoemBeautifier ");
+       // PoemBeautifier poemBeautifier = new PoemBeautifier();
+       // poemBeautifier.beautify("text", n -> "''"+ n+"''" );
+       // poemBeautifier.beautify("qwertyuiop", n -> n+ " text length :"+ n.length());
+       // poemBeautifier.beautify("text", n->  n.toUpperCase(Locale.ROOT) );
+       // poemBeautifier.beautify("TEXT", n-> n.toLowerCase(Locale.ROOT))//
 
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
 
     }
 }
