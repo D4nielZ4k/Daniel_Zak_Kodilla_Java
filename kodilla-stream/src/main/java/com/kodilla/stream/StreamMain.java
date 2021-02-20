@@ -13,7 +13,7 @@ public class StreamMain {
         Forum forum = new Forum();
 
         Map<Integer, String> finalList = forum.getUsersList().stream()
-              .filter(forumUser -> forumUser.getSexForumUser() == 'M')
+                .filter(forumUser -> forumUser.getSexForumUser() == 'M')
                 .filter(forumUser -> forumUser.getDatadate().isBefore(LocalDate.of(2000,12,31)))
                 .filter(forumUser -> forumUser.getPostsForumUser()>0)
                 .collect(Collectors.toMap(ForumUser::getSignature, ForumUser::toString));
