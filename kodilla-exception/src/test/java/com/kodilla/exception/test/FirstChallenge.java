@@ -10,8 +10,10 @@ public class FirstChallenge {
           }
       }catch (Exception e){
           System.out.println("does not divide by 0");
+      }finally {
+          return a / b;
       }
-        return a / b;
+
     }
 
     /**
