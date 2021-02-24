@@ -97,8 +97,8 @@ class BoardTestSuite {
                 .map(task -> (int) ChronoUnit.DAYS.between(task.getCreated(),LocalDate.now()))
                 .collect(toList());
 
-        double resultAverage = IntStream.range(0,days.size())
-                .map(n-> days.get(n))
+        double resultAverage = IntStream.range(0, days.size())
+                .map(n -> days.get(n))
                 .average().getAsDouble();
 
         //Then
