@@ -23,7 +23,7 @@ class MovieStore {
 
         Map<String, List<String>> booksTitlesWithTranslations = new HashMap<>();
         booksTitlesWithTranslations.put("IM", ironManTranslations);
-        booksTitlesWithTranslations.put("AV", avengersTranslations);
+        booksTitlesWithTranslations.put("AV", avengersTranslations);git
         booksTitlesWithTranslations.put("FL", flashTranslations);
 
         return booksTitlesWithTranslations;
@@ -34,7 +34,8 @@ class MovieStore {
         MovieStore movieStore = new MovieStore();
 
         String titles = movieStore.getMovies().entrySet().stream()
-                .flatMap(t-> t.getValue().stream()).collect(Collectors.joining("!"));
+                .flatMap(t -> t.getValue().stream())
+                .collect(Collectors.joining("!"));
 
         System.out.println(titles);
     }
