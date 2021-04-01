@@ -23,7 +23,7 @@ class MovieStore {
 
         Map<String, List<String>> booksTitlesWithTranslations = new HashMap<>();
         booksTitlesWithTranslations.put("IM", ironManTranslations);
-        booksTitlesWithTranslations.put("AV", avengersTranslations);git
+        booksTitlesWithTranslations.put("AV", avengersTranslations);
         booksTitlesWithTranslations.put("FL", flashTranslations);
 
         return booksTitlesWithTranslations;
