@@ -28,6 +28,8 @@ public class BoardTestSuite {
         Assertions.assertEquals("Task3", board.getDoneList().getTasks().get(0));
 
 
+
+
         Arrays.stream(context.getBeanDefinitionNames())
                 .forEach(System.out::println);
     }
