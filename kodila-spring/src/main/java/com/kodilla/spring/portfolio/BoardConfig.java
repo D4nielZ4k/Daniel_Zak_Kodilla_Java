@@ -9,8 +9,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BoardConfig {
 
-   public Board board ;
-
    @Bean(name = "getBoard")
    public Board getBoard (){
        return new Board(getTodoList(),getInProgressList(),getDoneList());
