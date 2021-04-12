@@ -20,7 +20,7 @@ public class BoardConfig {
        return new TaskList();
     }
 
-    @Bean(name="InProgres")
+    @Bean(name="InProgress")
     public TaskList getInProgressList(){
        return new TaskList();
 
