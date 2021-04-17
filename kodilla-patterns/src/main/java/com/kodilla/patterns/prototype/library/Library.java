@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public final class Library extends Prototype<Library>{
+public final class Library extends Prototype<Library> {
 
 
     private String name;
@@ -27,12 +27,12 @@ public final class Library extends Prototype<Library>{
         return super.clone();
     }
 
-    public  Library deppCopy() throws CloneNotSupportedException{
+    public Library deppCopy() throws CloneNotSupportedException {
         Library cloneLibrary = super.clone();
         cloneLibrary.books = new HashSet<>();
-        for (Book book : books){
-            Book clonedBok = new Book(book.getTitle(),book.author,book.publicationDate);
-        cloneLibrary.getBooks().add(clonedBok);
+        for (Book book : books) {
+            Book clonedBok = new Book(book.getTitle(), book.author, book.publicationDate);
+            cloneLibrary.getBooks().add(clonedBok);
         }
         return cloneLibrary;
     }

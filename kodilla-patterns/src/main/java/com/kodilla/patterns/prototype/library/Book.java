@@ -30,7 +30,7 @@ public final class Book {
     public String toString() {
         return " " + title +
                 "--" + author +
-                "--" + publicationDate +"\n"
-               ;
+                "--" + publicationDate + "\n"
+                ;
     }
 }
