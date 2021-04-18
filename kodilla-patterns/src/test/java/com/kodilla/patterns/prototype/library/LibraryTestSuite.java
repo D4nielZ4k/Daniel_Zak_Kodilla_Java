@@ -46,7 +46,24 @@ public class LibraryTestSuite {
             System.out.println(e);
         }
 
-        Assertions.assertEquals(clonedLibrary.getBooks().size(), library.getBooks().size());
-        Assertions.assertEquals(deepCloneLibrary.getBooks().size(), library.getBooks().size());
+     //  //deepCopy()
+     //  Library deepCloneLibraryOneBookRemove = null;
+     //  try {
+     //      deepCloneLibraryOneBookRemove = library.deppCopy();
+     //      deepCloneLibraryOneBookRemove.setName("new Name");
+
+     //  } catch (CloneNotSupportedException e) {
+     //      System.out.println(e);
+     //  }
+
+     //  library.getBooks().remove(book1);
+     //  System.out.println(library.getBooks().size());
+
+
+
+        Assertions.assertEquals(3, library.getBooks().size());
+        Assertions.assertEquals(3, library.getBooks().size());
+
+      //  System.out.println(deepCloneLibraryOneBookRemove);
     }
 }
