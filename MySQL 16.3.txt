@@ -1,0 +1,74 @@
+
+CREATE TABLE ISSUESLISTS
+(
+    ID SERIAL PRIMARY KEY,
+    NAME VARCHAR(150)
+
+);
+
+
+CREATE TABLE ISSUES
+(
+    ID                 SERIAL PRIMARY KEY,
+    ISSUESLIST_ID      BIGINT UNSIGNED NOT NULL,
+    SUMMARY            VARCHAR(50),
+    DESCRIPTION        VARCHAR(500),
+    USER_ID_ASSIGNEDTO BIGINT UNSIGNED NOT NULL,
+
+    FOREIGN KEY (ISSUESLIST_ID) REFERENCES ISSUESLISTS (ID),
+    FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES users (ID)
+);
+INSERT INTO ISSUESLISTS (NAME) VALUES ("ToDo");
+INSERT INTO ISSUESLISTS (NAME) VALUES ("progress");
+INSERT INTO ISSUESLISTS (NAME) VALUES ("Done");
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (1,"Summary To do list ","description",4);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (1,"Summary To do list ","description",3);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (1,"Summary To do list ","description",2);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (1,"Summary To do list ","description",1);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (1,"Summary To do list ","description",5);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (2,"Summary progress list ","description",3);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (2,"Summary progress list ","description",5);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (2,"Summary progress list ","description",2);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (2,"Summary progress list ","description",1);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (2,"Summary progress list ","description",4);
+
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (3,"Summary done list ","description",4);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (3,"Summary done list ","description",2);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (3,"Summary done list ","description",1);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (3,"Summary done list ","description",3);
+
+insert into issues(issueslist_id, summary, description, user_id_assignedto)
+VALUES (3,"Summary done list ","description",5);
+
+COMMIT ;
+SELECT *FROM ISSUES;
+SELECT *FROM ISSUESLISTS;
+SELECT *FROM USERS;
