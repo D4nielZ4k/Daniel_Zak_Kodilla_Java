@@ -97,8 +97,38 @@ class CompanyDaoTestSuite {
         }
     }
 
+    @Test
+    void test() {
+
+
+        //Given
+        Company softwareMachine = new Company("Software Machine");
+        Company softwareMaesters = new Company("Software Maesters");
+        Company greyMatter = new Company("Grey Matter");
+        //When
+        companyDao.save(softwareMachine);
+        int softwareMachineid = softwareMachine.getId();
+        companyDao.save(softwareMaesters);
+        int softwareMaestersId = softwareMaesters.getId();
+        companyDao.save(greyMatter);
+        int greyMatterID = greyMatter.getId();
+
+
+        List<Company> all = companyDao.searchCompanies("%Sof%");
+
+        try {
+            Assertions.assertEquals(2, all.size());
+        } finally {
+            companyDao.deleteById(softwareMachineid);
+            companyDao.deleteById(softwareMaestersId);
+            companyDao.deleteById(greyMatterID);
+        }
+
+    }
+
 
 }
+
 
 
 

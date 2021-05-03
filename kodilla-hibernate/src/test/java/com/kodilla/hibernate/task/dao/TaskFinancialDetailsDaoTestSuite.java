@@ -37,6 +37,4 @@ class TaskFinancialDetailsDaoTestSuite {
         taskFinancialDetailsDao.delete(taskFinancialDetails);
     }
 
-
-
 }

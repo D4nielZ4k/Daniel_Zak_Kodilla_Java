@@ -1,15 +1,17 @@
 package com.kodilla.hibernate.manytomany;
 
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-//
-//@NamedQuery(
-//        name = "Company. searchCompanies",
-//        query = "FROM COMPANIES WHERE company_name= :COMPANY_NAME"
-//)
-//
+
+@NamedQuery(
+        name = "Company.searchCompanies",
+        query = "FROM Company WHERE COMPANY_NAME LIKE :NAME"
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
