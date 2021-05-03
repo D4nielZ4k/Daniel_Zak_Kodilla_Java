@@ -4,14 +4,18 @@ package com.kodilla.hibernate.invoice.dao;
 import com.kodilla.hibernate.invoice.Invoice;
 import com.kodilla.hibernate.invoice.Item;
 import com.kodilla.hibernate.invoice.Product;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @SpringBootTest
@@ -31,8 +35,10 @@ public class InvoiceDaoTestSuite {
 
     @Test
     public void testInvoiceDaoSave() {
+
         //given
 
+        itemDao.deleteAll();
         Invoice invoice = new Invoice();
         Product product1 = new Product(PEN);
         Product product2 = new Product(RUBBER);
@@ -56,14 +62,21 @@ public class InvoiceDaoTestSuite {
 
         //when
         itemDao.save(item1);
+        int item1Id = item1.getId();
         itemDao.save(item2);
+        int item2Id = item2.getId();
         itemDao.save(item3);
+        int item3Id = item3.getId();
         invoiceDao.save(invoice);
         int invoiceId = invoice.getId();
 
+        invoiceDao.findById(invoiceId).get().getItems().size();
+        Optional<Invoice> all = invoiceDao.findById(invoiceId);
 
-        //then
-        assertEquals(3, invoice.getItems().size());
+       int cc=  all.get().getItems().size();
+
+        //athen
+        assertEquals(3,cc);
 
         //CleanUp
         invoiceDao.deleteById(invoiceId);

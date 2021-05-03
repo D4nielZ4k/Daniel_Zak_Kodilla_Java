@@ -4,7 +4,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-
+//
+//@NamedQuery(
+//        name = "Company. searchCompanies",
+//        query = "FROM COMPANIES WHERE company_name= :COMPANY_NAME"
+//)
+//
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

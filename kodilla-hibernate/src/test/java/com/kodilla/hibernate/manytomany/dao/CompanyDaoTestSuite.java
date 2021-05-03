@@ -2,20 +2,27 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest
 class CompanyDaoTestSuite {
+
+    @Autowired
+    private EmployeeDao employeeDao;
 
     @Autowired
     private CompanyDao companyDao;
 
     @Test
     void testSaveManyToMany() {
+
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -50,7 +57,7 @@ class CompanyDaoTestSuite {
         assertNotEquals(0, dataMaestersId);
         assertNotEquals(0, greyMatterId);
 
-       // CleanUp
+        // CleanUp
         try {
             companyDao.deleteById(softwareMachineId);
             companyDao.deleteById(dataMaestersId);
@@ -59,4 +66,72 @@ class CompanyDaoTestSuite {
             //do nothing
         }
     }
+
+
+    @Test
+    void testSearchEmployeeByName() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee karlKovalsky = new Employee("Karl", "Kovalsky");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+
+        //When
+        employeeDao.save(johnSmith);
+        int johnID = johnSmith.getId();
+        employeeDao.save(karlKovalsky);
+        int karlId = karlKovalsky.getId();
+        employeeDao.save(stephanieClarckson);
+        int carlId = stephanieClarckson.getId();
+        employeeDao.save(lindaKovalsky);
+        int lindaId = lindaKovalsky.getId();
+
+        List<Employee> employeeByName = employeeDao.retrievByLastName("Kovalsky");
+
+
+        //Then
+        try {
+            Assertions.assertEquals(2, employeeByName.size());
+        } finally {
+            employeeDao.deleteAll();
+        }
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
